@@ -1,0 +1,75 @@
+p.help-block.error {
+    font-size: 12px !important;
+}
+
+.modal-header.success {
+    color: white;
+    background: #00a65a;
+    border-radius: 3px;
+}
+
+
+.modal-header.warning {
+    color: white;
+    background: #f39c12;
+    border-radius: 3px;
+}
+
+
+.modal-header.danger {
+    color: white;
+    background: #dd4b39;
+    border-radius: 3px;
+}
+
+
+.modal-header.primary {
+    color: white;
+    background: #3c8dbc;
+    border-radius: 3px;
+}
+
+
+.modal-header.default {
+    color: white;
+    background: #777;
+    border-radius: 3px;
+}
+
+.modal-header.espetial {
+    color: white;
+    background: #b73333;
+    border-radius: 3px;
+}
+
+/* DEL MODAL MENSAJE ERROR HELP */
+
+.help-block {
+    /* display: block; */
+    margin-top: 0px !important;
+    /* margin-bottom: 10px;
+    color: #737373; */
+}
+
+/* CSS PARA UN BOTON PERSONALIZADO */
+.btn-orange-md {
+    background: #FF791F !important;
+    border-bottom: 3px solid #ae4d13 !important;
+    color: white;
+}
+
+.btn-orange-md:hover {
+    background: #d86016 !important;
+    color: white !important;
+}
+
+.btn-cancel-md {
+    background: #636363 !important;
+    border-bottom: 3px solid #282626 !important;
+    color: white;
+}
+
+.btn-cancel-md:hover {
+    background: #404040 !important;
+    color: white !important;
+}
