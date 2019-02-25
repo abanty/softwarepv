@@ -73,3 +73,13 @@ p.help-block.error {
     background: #404040 !important;
     color: white !important;
 }
+
+@media (min-width: 768px){
+.modal-sm {
+    width: 400px !important;
+}
+}
+
+.nav-tabs-custom>.nav-tabs>li.active {
+    border-top-color: #3d9970 !important;
+}

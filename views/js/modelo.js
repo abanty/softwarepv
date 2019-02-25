@@ -1,4 +1,139 @@
 var tabla;
+
+
+
+
+function init(){
+
+
+
+// TODO: CODIGO PARA CHECKBOX DINAMICO
+  $('input[type=checkbox]').change( function() {
+     if($(this).prop("checked") == true){
+     		$('#condicion').val('1');
+     		// alert($(this).val());
+     }else{
+     	$('#condicion').val('0');
+     	// alert($(this).val());
+     }
+     }
+  );
+
+  listarAc();
+
+
+}
+
+// TODO: FUNCION PARA ABRIR EL modal
+function openmodal(){
+  limpiarCampos();
+  $('#modal-default').modal('show');
+}
+
+
+// TODO: FUNCION PARA LIMPIAR CAMPOS
+function limpiarCampos(){
+
+  $("#abreviatura").focus();
+  $('#abreviatura').val('');
+  $('#nombre').val('');
+  $('#descripcion').val('');
+  $('#condicion').val('1');
+}
+
+// TODO: FUNCION PARA GUARDAR Y EDITAR REGISTROS
+function guardaryeditar(e){
+
+  // e.preventDefault();
+
+  var formData = new FormData($("#formulario")[0]);
+
+  $.ajax({
+    url: "../ajax/modelo.php?op=guardaryeditar",
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+
+    success: function(datos) {
+      // tabla.ajax.reload(null, false);
+      // $.notify.defaults({ className: "success" });
+      // $.notify.defaults({ autoHideDelay: 5000 });
+      // $.notify.defaults({ style: 'bootstrap' });
+      // $("#show_notify_alert").notify(datos,{ position:"left top" });
+      alert(datos);
+
+    }
+  });
+  limpiarCampos();
+}
+
+function listarAc(){
+
+    tabla=$('#tbllistado').dataTable(
+      {
+        "language": {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+        },
+          "aProcessing": true, //Activamos el procesamiento del datatables
+          "aServerSide": true, //Paginacion y filtrado realizados por el servidor
+         dom: 'Bfrtip',         //Definimos los elementos del control de tabla
+         buttons: [
+                   'copyHtml5',
+                   'excelHtml5',
+                   'csvHtml5',
+                   'pdf'
+               ],
+    "ajax":
+        {
+          url: '../ajax/modelo.php?op=listarAct',
+          type : "get",
+          dataType : "json",
+          error: function(e){
+            console.log(e.responseText);
+          }
+        },
+      "bDestroy": true,
+      "iDisplayLength": 10, //Paginación
+        "order": [[ 0, "asc" ]] //Ordenar (columna,orden)
+    }).DataTable();
+
+}
+
+function listarDe(){
+
+    tabla=$('#tbllistadoD').dataTable(
+      {
+          "aProcessing": true, //Activamos el procesamiento del datatables
+          "aServerSide": true, //Paginacion y filtrado realizados por el servidor
+         dom: 'Bfrtip',         //Definimos los elementos del control de tabla
+         buttons: [
+                   'copyHtml5',
+                   'excelHtml5',
+                   'csvHtml5',
+                   'pdf'
+               ],
+    "ajax":
+        {
+          url: '../ajax/modelo.php?op=listarDes',
+          type : "get",
+          dataType : "json",
+          error: function(e){
+            console.log(e.responseText);
+          }
+        },
+      "bDestroy": true,
+      "iDisplayLength": 10, //Paginación
+        "order": [[ 5, "asc" ]] //Ordenar (columna,orden)
+    }).DataTable();
+
+}
+
+function mostrar(){
+
+}
+
+
 (function() {
   // Before using it we must add the parse and format functions
   // Here is a sample implementation using moment.js
@@ -163,134 +298,6 @@ var tabla;
 
 
 
-function init(){
 
-
-
-// TODO: CODIGO PARA CHECKBOX DINAMICO
-  $('input[type=checkbox]').change( function() {
-     if($(this).prop("checked") == true){
-     		$('#condicion').val('1');
-     		// alert($(this).val());
-     }else{
-     	$('#condicion').val('0');
-     	// alert($(this).val());
-     }
-     }
-  );
-
-  listarAc();
-
-
-}
-
-// TODO: FUNCION PARA ABRIR EL modal
-function openmodal(){
-  limpiarCampos();
-  $('#modal-default').modal('show');
-}
-
-
-// TODO: FUNCION PARA LIMPIAR CAMPOS
-function limpiarCampos(){
-
-  $("#abreviatura").focus();
-  $('#abreviatura').val('');
-  $('#nombre').val('');
-  $('#descripcion').val('');
-  $('#condicion').val('1');
-}
-
-// TODO: FUNCION PARA GUARDAR Y EDITAR REGISTROS
-function guardaryeditar(e){
-
-  // e.preventDefault();
-
-  var formData = new FormData($("#formulario")[0]);
-
-  $.ajax({
-    url: "../ajax/modelo.php?op=guardaryeditar",
-    type: "POST",
-    data: formData,
-    contentType: false,
-    processData: false,
-
-    success: function(datos) {
-      // tabla.ajax.reload(null, false);
-      // $.notify.defaults({ className: "success" });
-      // $.notify.defaults({ autoHideDelay: 5000 });
-      // $.notify.defaults({ style: 'bootstrap' });
-      // $("#show_notify_alert").notify(datos,{ position:"left top" });
-      alert(datos);
-
-    }
-  });
-  limpiarCampos();
-}
-
-function listarAc(){
-
-    tabla=$('#tbllistado').dataTable(
-      {
-        "language": {
-            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
-        },
-          "aProcessing": true, //Activamos el procesamiento del datatables
-          "aServerSide": true, //Paginacion y filtrado realizados por el servidor
-         dom: 'Bfrtip',         //Definimos los elementos del control de tabla
-         buttons: [
-                   'copyHtml5',
-                   'excelHtml5',
-                   'csvHtml5',
-                   'pdf'
-               ],
-    "ajax":
-        {
-          url: '../ajax/modelo.php?op=listarAct',
-          type : "get",
-          dataType : "json",
-          error: function(e){
-            console.log(e.responseText);
-          }
-        },
-      "bDestroy": true,
-      "iDisplayLength": 10, //Paginación
-        "order": [[ 0, "asc" ]] //Ordenar (columna,orden)
-    }).DataTable();
-
-}
-
-function listarDe(){
-
-    tabla=$('#tbllistadoD').dataTable(
-      {
-          "aProcessing": true, //Activamos el procesamiento del datatables
-          "aServerSide": true, //Paginacion y filtrado realizados por el servidor
-         dom: 'Bfrtip',         //Definimos los elementos del control de tabla
-         buttons: [
-                   'copyHtml5',
-                   'excelHtml5',
-                   'csvHtml5',
-                   'pdf'
-               ],
-    "ajax":
-        {
-          url: '../ajax/modelo.php?op=listarDes',
-          type : "get",
-          dataType : "json",
-          error: function(e){
-            console.log(e.responseText);
-          }
-        },
-      "bDestroy": true,
-      "iDisplayLength": 10, //Paginación
-        "order": [[ 5, "asc" ]] //Ordenar (columna,orden)
-    }).DataTable();
-
-}
-
-function mostrar(){
-
-}
 
 init();

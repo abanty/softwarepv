@@ -19,12 +19,12 @@ require 'header.php';
 	<!-- Main content -->
 	<section class="content">
 		<!-- Default box -->
-		<div class="box box-primary">
+		<div class="box box-warning">
 			<div class="box-header with-border">
 				<br>
 				<h3 class="box-title"></h3>
 				<a class="btn btn-app" onclick="openmodal();">
-					<span class="badge bg-blue">NEW</span>
+					<span class="badge bg-olive">NEW</span>
 					<i class="fa fa-plus"></i> Agregar
 				</a>
 				<div class="box-tools pull-right">
@@ -99,60 +99,56 @@ require 'header.php';
 					<!-- nav-tabs-custom -->
 				</div>
 
-				<div class="modal fade" id="modal-default" role="dialog">
-					<div class="modal-dialog modal-md">
-						<div class="modal-content">
-							<div class="modal-header success">
-								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Registro de Modelos</h4>
-							</div>
-							<div class="modal-body">
-								<div class="panel-body" id="formularioregistros">
+        <div class="modal fade" id="modal-default" role="dialog">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header success">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><i class="fa fa-list"></i> Registro de Modelos</h4>
+              </div>
+              <div class="modal-body">
+                <div class="panel-body" id="formularioregistros">
 
-									<form id="formulario" name="formulario" class="" method="post" novalidate>
+                  <form id="formulario" name="formulario" class="" method="post" novalidate>
 
-										<div style="height:80px;">
-											<div class="form-group-sm col-lg-4 col-md-4 col-sm-4 col-xs-12">
-												<label class="control-label" for="abreviatura">Abreviatura<span style="color:#a94442;"> (*) </span>:</label>
-												<input class="form-control" type="text" name="abreviatura" id="abreviatura" style="text-transform:uppercase;" required>
-												<div style="margin-left:-10px; width: auto;" class="col-sm-5 messages"></div>
-											</div>
+                      <div class="form-group-sm col-md-12">
+                        <label class="form-label">Abreviatura<span style="color:#a94442;">*</span>:</label>
+                        <input class="form-control" type="text" name="abreviatura" id="abreviatura" style="text-transform:uppercase;">
+                        <div class="col-sm-12 messages"></div>
+                      </div>
 
-											<div class="form-group-sm col-lg-8 col-md-8 col-sm-8 col-xs-12">
-												<label class="control-label" for="nombre">Nombre<span style="color:#a94442;"> (*) </span>:</label>
-												<input class="form-control" type="text" name="nombre" id="nombre" style="text-transform:uppercase;">
-												<div style="margin-left:-10px; width: auto;" class="col-sm-5 messages"></div>
-											</div>
-										</div>
-										<br>
-										<!-- <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
-              </div> -->
+                      <div class="form-group-sm col-md-12">
+                        <label class="form-label">Nombre<span style="color:#a94442;">*</span>:</label>
+                        <input class="form-control" type="text" name="nombre" id="nombre" style="text-transform:uppercase;">
+                        <div class="col-sm-12 messages"></div>
+                      </div>
 
-										<div class="form-group-sm col-lg-8 col-md-8 col-sm-8 col-xs-12">
-											<label class="control-label" for="descripcion">Descripción:</label>
-											<textarea style="overflow:auto;resize:none;" class="form-control" rows="3" cols="50" id="descripcion" name="descripcion"></textarea>
-											<div style="margin-left:-10px; width: auto;" class="col-sm-5 messages"></div>
-										</div>
+                    <div class="form-group-sm col-md-12">
+                      <label class="control-label" for="descripcion">Descripción:</label>
+                      <textarea style="overflow:auto;resize:none;" class="form-control" rows="3" cols="50" id="descripcion" name="descripcion"></textarea>
+                      <div class="col-sm-12 messages"></div>
+                    </div>
 
-										<div class="form-group-sm col-lg-4 col-md-4 col-sm-4 col-xs-12">
-											<label class="control-label" for="descripcion">Estado(*):</label>
-											<br>
-											<input name="condicion" id="condicion" type="checkbox" value="1" checked data-toggle="toggle" data-width="120" data-offstyle="danger" data-onstyle="success" data-on="<i class='fa fa-check'></i> Activado" data-off="<i class='fa fa-close'></i> Desactivado">
-										</div>
+                    <div class="form-group-sm col-md-12">
+                      <label class="control-label" for="descripcion">Estado(*):</label>
+                      <br>
+                      <input name="condicion" id="condicion" type="checkbox" value="1" checked data-toggle="toggle" data-width="120" data-offstyle="danger" data-onstyle="success" data-on="<i class='fa fa-check'></i> Activado" data-off="<i class='fa fa-close'></i> Desactivado">
+                    </div>
 
-									</form>
-								</div>
-							</div>
-							<div class="modal-footer">
-								<button type="button" data-dismiss="modal" class="btn btn-cancel-md roboto">Cerrar</button>
-								<!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-								<button type="submit" form="formulario" class="btn btn-orange-md roboto">Guardar Cambios</button>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <center>
+                  <button type="button" data-dismiss="modal" class="btn btn-cancel-md roboto">Cerrar</button>
+                  <button type="submit" form="formulario" class="btn btn-orange-md roboto">Guardar Cambios</button>
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
 
-							</div>
-						</div>
-					</div>
-				</div>
+
 
 			</div>
 			<!-- /.box-body -->
